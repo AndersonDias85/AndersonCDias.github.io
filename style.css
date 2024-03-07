@@ -32,39 +32,28 @@ body {
   font-weight: bolder;
 }
 .title2,
-.text2,
 .title3 {
   font-size: 3em;
+  font-weight: bold;
+  color: black;
+}
+.text2,
+.title3 {
+  font-size: 1.5em;
   font-weight: bold;
   color: black;
 }
 
 .box {
   background: #eee;
-  padding: 4rem;
+  padding: 2rem;
   box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 50px;
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 10%;
+  max-width: 75%;
 }
 
-.box_home {
-  background: #eee;
-  padding: 1rem;
-  box-shadow: 2rem 2rem 16rem rgba(0, 0, 0, 0.16);
-  border-radius: 70em;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.btnHome {
-  border-radius: 80rem;
-  padding: 1rem;
-  font-weight: bolder;
-  font-size: larger;
-  color: bisque;
-  background-color: blue;
-}
 
 .profile-gif {
   border-radius: 50%;
@@ -97,7 +86,7 @@ body {
 }
 
 .portfolio {
-  max-width: 100rem;
+  max-width: 90rem;
   box-sizing: border-box;
 }
 
@@ -111,6 +100,14 @@ body {
   text-align: left;
   gap: 1rem;
   color: #606060;
+}
+.portfolioTitle {
+  
+  background: #eee;
+  padding: 2rem;
+  border-radius: 40px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .portfolio li + li {
@@ -128,7 +125,7 @@ body {
 .skills {
   border-radius: 50%;
   width: 8rem;
-
+  padding: 1rem;
   justify-content: flex-start;
 }
 .copyright {
@@ -139,8 +136,58 @@ body {
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 10rem 10rem 10rem 10rem 10rem;
+  grid-template-columns: 10rem 10rem 10rem 10rem;
 }
 p{
   font-size: 1.5rem;;
+}
+
+.logo-pic {
+  border-radius: 10%;
+  width: 8rem;
+  margin: 0 auto 2rem auto;
+}
+
+.btn {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btn {
+  width: 150px;
+  height: 60px;
+  border-radius: 50px;
+  background-image: linear-gradient(135deg, hwb(226 2% 3%) 0%, hwb(320 1% 0% / 0.49) 100%);
+  box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn:active {
+  opacity: 0.5;
+}
+
+.img {
+  background: #eee;
+  padding: 2rem;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 50px;
+  text-align: center;
+  align-items: center;
+  margin-top: 2rem;
+  display: flex; 
+  justify-content: center; 
+  flex-direction: column;
+}
+
+.profile-gif {
+  max-width: 100%; 
 }
