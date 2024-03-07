@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+/*remove o ponto em frente a lista*/
+li {
+  list-style: none;
+  font-size: 2em;
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-attachment: fixed;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  color: #aeaeae;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: normal;
+  font-style: oblique;
+  color: black;
+  font-weight: bolder;
+}
+.title2,
+.text2,
+.title3 {
+  font-size: 3em;
+  font-weight: bold;
+  color: black;
+}
+
+.box {
+  background: #eee;
+  padding: 4rem;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 50px;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.box_home {
+  background: #eee;
+  padding: 1rem;
+  box-shadow: 2rem 2rem 16rem rgba(0, 0, 0, 0.16);
+  border-radius: 70em;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btnHome {
+  border-radius: 80rem;
+  padding: 1rem;
+  font-weight: bolder;
+  font-size: larger;
+  color: bisque;
+  background-color: blue;
+}
+
+.profile-gif {
+  border-radius: 50%;
+  width: 5rem;
+  margin: 0 0 0 0;
+}
+.profile-pic {
+  border-radius: 50%;
+  width: 15rem;
+  margin: 0 auto 2rem auto;
+}
+
+.profile span {
+  font-size: 2rem;
+}
+
+.profile p {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+}
+
+.redes-sociais li {
+  margin-right: 1rem;
+}
+
+.portfolio {
+  max-width: 100rem;
+  box-sizing: border-box;
+}
+
+.portfolio ul {
+  margin-top: 3rem;
+}
+
+.portfolio li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  text-align: left;
+  gap: 1rem;
+  color: #606060;
+}
+
+.portfolio li + li {
+  margin-top: 2rem;
+}
+
+.portfolio img {
+  border-radius: 10rem;
+}
+
+.portfolio h2 {
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+.skills {
+  border-radius: 50%;
+  width: 8rem;
+
+  justify-content: flex-start;
+}
+.copyright {
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 16px black;
+  margin: 50vh 0;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem 10rem 10rem;
+}
+p{
+  font-size: 1.5rem;;
+}
