@@ -6,243 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anderson C. Dias | Desenvolvedor Full Stack</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css">
 
-  <style>
-    /* ── RESET & BASE ──────────────────────────────────────── */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ── FUNDO ANIMADO (substitui bg.jpg) ──────────────────── */
-    body {
-      min-height: 100vh;
-      font-family: 'Inter', sans-serif;
-      color: #e2e8f0;
-      background: #0a0e1a;
-      background-image:
-        radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.10) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 0%,  rgba(0, 212, 255, 0.05) 0%, transparent 60%);
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    /* Partícula de grade pontilhada sutil no fundo */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(0, 212, 255, 0.15) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── LAYOUT PRINCIPAL ──────────────────────────────────── */
-    .page-wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    /* ── CARD GLASSMORPHISM ────────────────────────────────── */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 20px;
-      padding: 40px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
-                  0 0 30px rgba(0, 212, 255, 0.06);
-    }
-
-    /* ── CARD DE PERFIL (hero) ─────────────────────────────── */
-    .profile-card {
-      text-align: center;
-      padding: 48px 40px;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(0, 212, 255, 0.5);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
-      margin-bottom: 24px;
-    }
-
-    .profile-name {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 0.02em;
-      margin-bottom: 6px;
-    }
-
-    .profile-location {
-      font-size: 0.9rem;
-      color: rgba(0, 212, 255, 0.7);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .profile-role {
-      font-size: 1.05rem;
-      color: #94a3b8;
-      margin-bottom: 28px;
-    }
-
-    /* ── REDES SOCIAIS ─────────────────────────────────────── */
-    .redes-sociais {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .redes-sociais a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
-    }
-
-    .redes-sociais a:hover {
-      background: rgba(0, 212, 255, 0.15);
-      border-color: rgba(0, 212, 255, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .redes-sociais img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0) invert(1);
-    }
-
-    /* ── SEÇÃO GIF (bio image) ─────────────────────────────── */
-    .profile-gif {
-      display: block;
-      max-width: 180px;
-      margin: 0 auto 28px;
-      border-radius: 12px;
-      opacity: 0.85;
-    }
-
-    /* ── TÍTULOS DE SEÇÃO ──────────────────────────────────── */
-    .section-title {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #00d4ff;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-    }
-
-    /* ── TEXTO DO BIO ──────────────────────────────────────── */
-    .bio-text {
-      font-size: 0.97rem;
-      line-height: 1.85;
-      color: #cbd5e1;
-      margin-bottom: 16px;
-    }
-
-    /* ── LISTAS SEMÂNTICAS ─────────────────────────────────── */
-    .bio-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .bio-list li {
-      font-size: 0.97rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .bio-list li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: #00d4ff;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    /* ── ESPAÇADOR ENTRE SEÇÕES DENTRO DO CARD ─────────────── */
-    .section-block {
-      margin-top: 36px;
-    }
-
-    /* ── LINK DE CURRÍCULO ─────────────────────────────────── */
-    .cv-card {
-      text-align: center;
-    }
-
-    .cv-card a {
-      display: inline-block;
-      transition: transform 0.2s;
-    }
-
-    .cv-card a:hover {
-      transform: scale(1.04);
-    }
-
-    .cv-card img {
-      max-width: 90px;
-      filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.4));
-    }
-
-    .cv-label {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #00d4ff;
-      margin-bottom: 16px;
-    }
-
-    /* ── RODAPÉ ────────────────────────────────────────────── */
-    .copyright {
-      text-align: center;
-      font-size: 0.8rem;
-      color: rgba(148, 163, 184, 0.5);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── RESPONSIVO ────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .glass-card { padding: 28px 22px; }
-      .profile-name { font-size: 1.5rem; }
-    }
-  </style>
+ 
 </head>
 
 <body>
@@ -251,7 +17,7 @@
 
     <!-- ══ HERO / PERFIL ══════════════════════════════════════ -->
     <div class="glass-card profile-card">
-      <img class="profile-pic" src="foto.jpeg" alt="Anderson Cesar Dias" />
+      <img class="profile-pic" src="assets/img/foto.jpeg" alt="Anderson Cesar Dias" />
       <h1 class="profile-name">Anderson Cesar Dias</h1>
       <p class="profile-location">Salto · SP · Brazil</p>
       <p class="profile-role">Desenvolvedor Full Stack</p>
@@ -259,12 +25,12 @@
       <ul class="redes-sociais">
         <li>
           <a href="https://contate.me/5519999725028" target="_blank" title="WhatsApp">
-            <img src="whatsapp.svg" alt="WhatsApp" />
+            <img src="assets/img/whatsapp.svg" alt="WhatsApp" />
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/anderson-c-dias/" target="_blank" title="LinkedIn">
-            <img src="linkedin.svg" alt="LinkedIn" />
+            <img src="assets/img/linkedin.svg" alt="LinkedIn" />
           </a>
         </li>
       </ul>
@@ -273,7 +39,7 @@
     <!-- ══ BIO ════════════════════════════════════════════════ -->
     <div class="glass-card">
 
-      <img class="profile-gif" src="assets/Anderson Cesar Dias.gif" alt="Foto animada" />
+     
 
       <!-- Infância e Juventude -->
       <h2 class="section-title">Infância e Juventude</h2>
@@ -318,7 +84,7 @@
 
       <!-- Família e Fé -->
       <div class="section-block">
-        <h2 class="section-title">Família e Fé</h2>
+        <h2 class="section-title"> Família e Fé</h2>
         <ul class="bio-list">
           <li>Casado com Bruna Carolina Rezende.</li>
           <li>Cristão protestante.</li>
@@ -364,7 +130,7 @@
     <div class="glass-card cv-card">
       <p class="cv-label">Currículo</p>
       <a href="curriculo.html">
-        <img src="curriculum-vitae.png" alt="Ver Currículo" />
+        <img src="assets/img/curriculum-vitae.png" alt="Ver Currículo" />
       </a>
     </div>
 
