@@ -1,42 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anderson C dias</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body background="bg.jpg" no-repeat top center>
-    <div class="profile box">
-    
-      <img class="profile-pic" src="foto.jpeg" alt="Profile" />
-      <h1 class="title">Anderson Cesar Dias </h1>
-      <span>Indaiatuba - SP, Brazil</span>
-      <p>Desenvolvedor Java Junior</p>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anderson C. Dias | Certificados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ──────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── FUNDO ANIMADO ─────────────────────────────────────── */
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: #e2e8f0;
+      background: #0a0e1a;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%,  rgba(0, 212, 255, 0.05) 0%, transparent 60%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(0, 212, 255, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LAYOUT PRINCIPAL ──────────────────────────────────── */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ── CARD GLASSMORPHISM ────────────────────────────────── */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                  0 0 30px rgba(0, 212, 255, 0.06);
+    }
+
+    /* ── CARD DE PERFIL ────────────────────────────────────── */
+    .profile-card {
+      text-align: center;
+      padding: 48px 40px;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(0, 212, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+      margin-bottom: 24px;
+    }
+
+    .profile-name {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .profile-location {
+      font-size: 0.9rem;
+      color: rgba(0, 212, 255, 0.7);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .profile-role {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    /* ── REDES SOCIAIS ─────────────────────────────────────── */
+    .redes-sociais {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .redes-sociais a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .redes-sociais a:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: rgba(0, 212, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .redes-sociais img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ── TÍTULO DE SEÇÃO ───────────────────────────────────── */
+    .section-title {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #00d4ff;
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    /* ── GRID DE CERTIFICADOS ──────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── CARD INDIVIDUAL DE CERTIFICADO ────────────────────── */
+    .cert-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 212, 255, 0.35);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35),
+                  0 0 20px rgba(0, 212, 255, 0.08);
+    }
+
+    /* Ícone / badge da categoria */
+    .cert-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .cert-icon.azure    { background: rgba(0, 120, 212, 0.2); }
+    .cert-icon.java     { background: rgba(239, 111, 44, 0.2); }
+    .cert-icon.web      { background: rgba(0, 212, 255, 0.15); }
+    .cert-icon.bd       { background: rgba(124, 58, 237, 0.2); }
+    .cert-icon.soft     { background: rgba(16, 185, 129, 0.2); }
+    .cert-icon.design   { background: rgba(244, 63, 94, 0.2); }
+    .cert-icon.outros   { background: rgba(148, 163, 184, 0.15); }
+
+    .cert-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.4;
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: rgba(0, 212, 255, 0.7);
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .cert-year {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: auto;
+    }
+
+    /* Badge de verificação (opcional — para certs com link) */
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: rgba(0, 212, 255, 0.6);
+      text-decoration: none;
+      margin-top: 4px;
+      transition: color 0.2s;
+    }
+
+    .cert-link:hover {
+      color: #00d4ff;
+    }
+
+    /* ── ESTADO VAZIO (quando não há certs cadastrados) ─────── */
+    .cert-empty {
+      text-align: center;
+      padding: 48px 20px;
+      color: #475569;
+    }
+
+    .cert-empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .cert-empty p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ── NAVEGAÇÃO DE VOLTA ────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(0, 212, 255, 0.6);
+      text-decoration: none;
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.06em;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .back-link:hover {
+      color: #00d4ff;
+      gap: 12px;
+    }
+
+    /* ── RODAPÉ ────────────────────────────────────────────── */
+    .copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(148, 163, 184, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVO ────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .glass-card  { padding: 28px 22px; }
+      .profile-name { font-size: 1.5rem; }
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- ── NAVEGAÇÃO ──────────────────────────────────────── -->
+    <div>
+      <a href="index.html" class="back-link">← voltar ao início</a>
+    </div>
+
+    <!-- ══ HERO / PERFIL ══════════════════════════════════════ -->
+    <div class="glass-card profile-card">
+      <img class="profile-pic" src="foto.jpeg" alt="Anderson Cesar Dias" />
+      <h1 class="profile-name">Anderson Cesar Dias</h1>
+      <p class="profile-location">Salto · SP · Brazil</p>
+      <p class="profile-role">Desenvolvedor Full Stack</p>
+
       <ul class="redes-sociais">
         <li>
-          <a href="https://www.facebook.com/andersoncesar.dias.18"target="_blank"><img src="facebook.svg" alt="Facebook" /></a>
+          <a href="https://www.facebook.com/andersoncesar.dias.18" target="_blank" title="Facebook">
+            <img src="facebook.svg" alt="Facebook" />
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://contate.me/andersonCesarDias" target="_blank" title="WhatsApp">
+            <img src="whatsapp.svg" alt="WhatsApp" />
+          </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/anderson_c_dias/"target="_blank"><img src="instagram.svg" alt="Instagram" /></a>
-        </li>
-        <li>
-          <a href="https://contate.me/andersonCesarDias" target="_blank"><img src="whatsapp.svg" alt="WhatsApp" /></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/anderson-c-dias/"target="_blank"><img src="linkedin.svg" alt="LinkedIn" /></a>
+          <a href="https://www.linkedin.com/in/anderson-c-dias/" target="_blank" title="LinkedIn">
+            <img src="linkedin.svg" alt="LinkedIn" />
+          </a>
         </li>
       </ul>
     </div>
-    <div class="portfolio box">
-      <h1 class="title">Certificados</h1>
-      
+
+    <!-- ══ CERTIFICADOS ═══════════════════════════════════════ -->
+    <div class="glass-card">
+      <h2 class="section-title">Certificados</h2>
+
+      <div class="cert-grid">
+
+        <!-- ── Exemplo 1: Azure ──────────────────────────── -->
+        <div class="cert-card">
+          <div class="cert-icon azure">☁️</div>
+          <span class="cert-name">Azure Fundamentals</span>
+          <span class="cert-issuer">Microsoft · AZ-900</span>
+          <span class="cert-year">2023</span>
+          <!-- Se tiver link de verificação, descomente abaixo:
+          <a class="cert-link" href="URL_DO_CERTIFICADO" target="_blank">
+            ↗ verificar credencial
+          </a>
+          -->
+        </div>
+
+        <!-- ── Exemplo 2: Java ───────────────────────────── -->
+        <div class="cert-card">
+          <div class="cert-icon java">☕</div>
+          <span class="cert-name">Java Web com Spring Boot</span>
+          <span class="cert-issuer">Udemy</span>
+          <span class="cert-year">2022</span>
+        </div>
+
+        <!-- ── Exemplo 3: Web ────────────────────────────── -->
+        <div class="cert-card">
+          <div class="cert-icon web">🌐</div>
+          <span class="cert-name">Web Designer</span>
+          <span class="cert-issuer">Microcamp</span>
+          <span class="cert-year">2011</span>
+        </div>
+
+        <!-- ── Exemplo 4: BD ─────────────────────────────── -->
+        <div class="cert-card">
+          <div class="cert-icon bd">🗄️</div>
+          <span class="cert-name">Oracle SQL & PL/SQL</span>
+          <span class="cert-issuer">Oracle Academy</span>
+          <span class="cert-year">2020</span>
+        </div>
+
+        <!--
+          ┌─────────────────────────────────────────────────┐
+          │  COMO ADICIONAR MAIS CERTIFICADOS               │
+          │                                                 │
+          │  Copie o bloco abaixo e substitua os valores:  │
+          │                                                 │
+          │  <div class="cert-card">                        │
+          │    <div class="cert-icon CATEGORIA">EMOJI</div> │
+          │    <span class="cert-name">NOME DO CERT</span>  │
+          │    <span class="cert-issuer">INSTITUIÇÃO</span> │
+          │    <span class="cert-year">ANO</span>           │
+          │  </div>                                         │
+          │                                                 │
+          │  Categorias disponíveis para cert-icon:         │
+          │  azure · java · web · bd · soft · design · outros│
+          └─────────────────────────────────────────────────┘
+        -->
+
+      </div>
     </div>
-    
-    <p class="copyright">© 2022 Anderson Cesar Dias</p>
-  </body>
+
+    <!-- ══ RODAPÉ ═════════════════════════════════════════════ -->
+    <p class="copyright">© 2026 Anderson Cesar Dias</p>
+
+  </div>
+
+</body>
 </html>

@@ -1,146 +1,714 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anderson C dias</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body background="bg.jpg" no-repeat top center>
-    <div class="profile box">
-      <img class="profile-pic" src="foto.jpeg" alt="Profile" />
-      <h1 class="title">Anderson Cesar Dias </h1>
-      <span>Salto - SP, Brazil</span>
-      <p>Desenvolvedor Full Stack</p>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anderson C. Dias | Currículo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ──────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── FUNDO ─────────────────────────────────────────────── */
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: #e2e8f0;
+      background: #0a0e1a;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%,  rgba(0, 212, 255, 0.05) 0%, transparent 60%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(0, 212, 255, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LAYOUT PRINCIPAL ──────────────────────────────────── */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ── CARD GLASSMORPHISM ────────────────────────────────── */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                  0 0 30px rgba(0, 212, 255, 0.06);
+    }
+
+    /* ── HERO / PERFIL ─────────────────────────────────────── */
+    .profile-card {
+      text-align: center;
+      padding: 48px 40px;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(0, 212, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+      margin-bottom: 24px;
+    }
+
+    .profile-name {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .profile-location {
+      font-size: 0.9rem;
+      color: rgba(0, 212, 255, 0.7);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .profile-role {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    /* ── REDES SOCIAIS ─────────────────────────────────────── */
+    .redes-sociais {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .redes-sociais a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .redes-sociais a:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: rgba(0, 212, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .redes-sociais img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ── TÍTULO DE SEÇÃO ───────────────────────────────────── */
+    .section-title {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #00d4ff;
+      margin-bottom: 32px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       TIMELINE DE EXPERIÊNCIAS
+    ══════════════════════════════════════════════════════════ */
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Linha vertical contínua */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 212, 255, 0.6),
+        rgba(124, 58, 237, 0.4),
+        rgba(0, 212, 255, 0.1)
+      );
+    }
+
+    /* ── Item da timeline ──────────────────────────────────── */
+    .tl-item {
+      display: flex;
+      gap: 24px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Ponto na linha */
+    .tl-dot {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      background: #0a0e1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .tl-dot img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    /* Conteúdo do item */
+    .tl-content {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .tl-content:hover {
+      border-color: rgba(0, 212, 255, 0.25);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .tl-period {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.72rem;
+      color: rgba(0, 212, 255, 0.65);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tl-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 4px;
+    }
+
+    .tl-company {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    .tl-desc {
+      font-size: 0.92rem;
+      color: #94a3b8;
+      line-height: 1.75;
+    }
+
+    /* Label "Case" dentro da timeline */
+    .tl-case-label {
+      display: inline-block;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(124, 58, 237, 0.8);
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      border-radius: 6px;
+      padding: 2px 8px;
+      margin: 14px 0 8px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       EDUCAÇÃO
+    ══════════════════════════════════════════════════════════ */
+    .edu-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .edu-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .edu-info {
+      flex: 1;
+    }
+
+    .edu-degree {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 3px;
+    }
+
+    .edu-institution {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .edu-period {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.72rem;
+      color: rgba(0, 212, 255, 0.6);
+      letter-spacing: 0.08em;
+    }
+
+    .edu-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: rgba(0, 212, 255, 0.6);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      transition: all 0.2s;
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .edu-link:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: rgba(0, 212, 255, 0.5);
+      color: #00d4ff;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CERTIFICADOS
+    ══════════════════════════════════════════════════════════ */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .cert-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cert-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .cert-icon.azure  { background: rgba(0, 120, 212, 0.2); }
+    .cert-icon.java   { background: rgba(239, 111, 44, 0.2); }
+    .cert-icon.outros { background: rgba(148, 163, 184, 0.12); }
+
+    .cert-name     { font-size: 0.9rem; font-weight: 600; color: #f1f5f9; line-height: 1.4; }
+    .cert-issuer   { font-size: 0.78rem; color: rgba(0, 212, 255, 0.65); font-family: 'Source Code Pro', monospace; }
+    .cert-year     { font-size: 0.75rem; color: #475569; margin-top: auto; }
+
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.73rem;
+      color: rgba(0, 212, 255, 0.55);
+      text-decoration: none;
+      font-family: 'Source Code Pro', monospace;
+      transition: color 0.2s;
+    }
+
+    .cert-link:hover { color: #00d4ff; }
+
+    /* ══════════════════════════════════════════════════════════
+       HABILIDADES (SKILLS)
+    ══════════════════════════════════════════════════════════ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+      cursor: default;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 212, 255, 0.3);
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .skill-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .skill-label {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── NAVEGAÇÃO ─────────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(0, 212, 255, 0.6);
+      text-decoration: none;
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.06em;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .back-link:hover {
+      color: #00d4ff;
+      gap: 12px;
+    }
+
+    /* ── RODAPÉ ────────────────────────────────────────────── */
+    .copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(148, 163, 184, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVO ────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .glass-card    { padding: 28px 20px; }
+      .profile-name  { font-size: 1.5rem; }
+      .tl-dot        { display: none; }
+      .timeline::before { display: none; }
+      .tl-item       { padding-left: 0; }
+      .skills-grid   { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- ── NAVEGAÇÃO ──────────────────────────────────────── -->
+    <div>
+      <a href="index.html" class="back-link">← voltar ao início</a>
+    </div>
+
+    <!-- ══ HERO / PERFIL ══════════════════════════════════════ -->
+    <div class="glass-card profile-card">
+      <img class="profile-pic" src="foto.jpeg" alt="Anderson Cesar Dias" />
+      <h1 class="profile-name">Anderson Cesar Dias</h1>
+      <p class="profile-location">Salto · SP · Brazil</p>
+      <p class="profile-role">Desenvolvedor Full Stack</p>
+
       <ul class="redes-sociais">
+  
         <li>
-          <a href="https://www.instagram.com/anderson_c_dias/"target="_blank"><img src="instagram.svg" alt="Instagram" /></a>
+          <a href="https://contate.me/andersonCesarDias" target="_blank" title="WhatsApp">
+            <img src="whatsapp.svg" alt="WhatsApp" />
+          </a>
         </li>
         <li>
-          <a href="https://contate.me/andersonCesarDias" target="_blank"><img src="whatsapp.svg" alt="WhatsApp" /></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/anderson-c-dias/"target="_blank"><img src="linkedin.svg" alt="LinkedIn" /></a>
+          <a href="https://www.linkedin.com/in/anderson-c-dias/" target="_blank" title="LinkedIn">
+            <img src="linkedin.svg" alt="LinkedIn" />
+          </a>
         </li>
       </ul>
     </div>
-    <br/><br/>
-      <div class="portfolioTitle">
-        <h1 class="title">Experiências Profissionais</h1>
+
+    <!-- ══ EXPERIÊNCIAS ════════════════════════════════════════ -->
+    <div class="glass-card">
+      <h2 class="section-title">Experiências Profissionais</h2>
+
+      <div class="timeline">
+
+        <!-- Mirante Tecnologia -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <img src="mirante.png" alt="Mirante" />
+          </div>
+          <div class="tl-content">
+            <p class="tl-period">jun/2025 · atual</p>
+            <h3 class="tl-role">Desenvolvedor Java</h3>
+            <p class="tl-company">Mirante Tecnologia</p>
+            <p class="tl-desc">
+              Desenvolvimento de aplicações internas para atender às demandas dos clientes.
+              Participação em projetos de modernização e revitalização de sistemas, contribuindo
+              na migração e reconstrução de aplicações legadas para soluções mais modernas,
+              utilizando tecnologias atualizadas, boas práticas de desenvolvimento e interfaces
+              com design renovado.
+            </p>
+          </div>
+        </div>
+
+        <!-- TIVIT -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <img src="tivit.png" alt="TIVIT" />
+          </div>
+          <div class="tl-content">
+            <p class="tl-period">out/2022 · jun/2025</p>
+            <h3 class="tl-role">Analista de Desenvolvimento Jr.</h3>
+            <p class="tl-company">TIVIT Terceirização</p>
+            <p class="tl-desc">
+              Desenvolvimento e sustentação de aplicações desenvolvidas internamente para
+              atender as demandas diárias dos usuários da área de negócio do cliente.
+            </p>
+            <span class="tl-case-label">◆ case de sucesso</span>
+            <p class="tl-desc">
+              Desenvolvimento de um serviço Java que faz recepção e leitura de arquivos texto
+              gerados por diversas fontes pagadoras dentro da empresa do cliente. A aplicação
+              realizava leitura e consolidação desses arquivos em um único arquivo no formato
+              requerido pela Receita Federal para o envio da DIRF 2023.
+            </p>
+          </div>
+        </div>
+
+        <!-- Corpus — Dev -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <img src="corpus.png" alt="Corpus" />
+          </div>
+          <div class="tl-content">
+            <p class="tl-period">set/2021 · jul/2022</p>
+            <h3 class="tl-role">Desenvolvedor de TI</h3>
+            <p class="tl-company">Corpus Saneamento e Obras</p>
+            <p class="tl-desc">
+              Criação e sustentação de ferramentas e sistemas que otimizavam o dia a dia dos
+              usuários, com integração a ferramentas de terceiros como TOTVS RM e Protheus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Corpus — Analista -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <img src="corpus.png" alt="Corpus" />
+          </div>
+          <div class="tl-content">
+            <p class="tl-period">nov/2018 · set/2021</p>
+            <h3 class="tl-role">Analista de Sistemas Jr.</h3>
+            <p class="tl-company">Corpus Saneamento e Obras</p>
+            <p class="tl-desc">
+              Suporte aos usuários nos produtos TOTVS RM e Protheus, além de sustentação em
+              aplicações desenvolvidas internamente.
+            </p>
+            <span class="tl-case-label">◆ cases de sucesso</span>
+            <p class="tl-desc">
+              Participação no projeto de implantação do ERP Protheus, com atuação nas áreas de
+              negócio de Manutenção de Ativos e Frotas, e Facilities.<br /><br />
+              Desenvolvimento de plataforma web com manuais e treinamentos das ferramentas
+              utilizadas na empresa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Corpus — Estagiário -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <img src="corpus.png" alt="Corpus" />
+          </div>
+          <div class="tl-content">
+            <p class="tl-period">2016 · 2017</p>
+            <h3 class="tl-role">Estagiário de Sistemas</h3>
+            <p class="tl-company">Corpus Saneamento e Obras</p>
+            <p class="tl-desc">
+              Suporte aos usuários nos produtos TOTVS RM, elaboração de relatórios baseados em
+              SQL e sustentação em aplicações desenvolvidas internamente.
+            </p>
+          </div>
+        </div>
+
       </div>
-      <div class="portfolio box">
-<br/>
-
-<img class="logo-pic" src="tivit.png" alt="Logo TIVIT" />
-<h2 class="title2">2022 - ATUAL</h2>
-<h2 class="title2">Desenvolvedor Full Stack </h2> 
-<h3 >
-<h3 class="text2">
-  • Desenvolvimento e Sustentação de aplicações desenvolvidas internamente, 
-  para atender as demanda diária,
-  dos usuários da area de negócio do cliente. <br><br>
-
-Cases<br>
-
-• Desenvolvimento de um serviço java que faz recepção e leitura de arquivos texto 
-gerados por diversas fontes pagadoras dentro da empresa do cliente, essa aplicação fazia leitura 
-e consolidação desses arquivos em um unico arquivo no formato requerido pela receita para o envio da Dirf 2023.
-</h3>  
-    </div>
-    <div class="portfolio box">
-
-      <img class="logo-pic" src="corpus.png" alt="Logo corpus" />
-<h2 class="title2">2021 - 2022</h2>
-<h2 class="title2">Desenvolvedor Java Junior </h2> 
-<h3 class="text2"><br/><br/> 
-  • Desenvolvimento e Sustentação de aplicações desenvolvidas internamente, para atender as demanda diaria bem como integrar ferramentes 
-de terceiros como o TOVS RM  e Protheus. </h3>  
-    </div>
-    <div class="portfolio box">
-        
-<br/>
-<img class="logo-pic" src="corpus.png" alt="Logo corpus" />
-<h2 class="title2">2017 – 2021</h2>
-<h2 class="title2">Analista de Sistemas Junior </h2> 
-<h3 class="text2"><br/><br/> 
-  • Suporte aos usuários nos produtos TOTVS RM, Protheus e Sustentação em 
-aplicações desenvolvidas internamente.<br/><br/> 
-(Cases) Exemplos de Sucesso: <br/><br/>
-• Participação no projeto de implantação do ERP Protheus, com atuação nas áreas 
-de negócios relacionados à Manutenção de ativos e frotas, Facilities. <br/><br/>
-• Desenvolvimento de Plataforma Web, com manuais e treinamento, das 
-ferramentas utilizadas na empresa. </h3>  
-    </div>
-    <div class="portfolio box">
-      
-<br/>
-<img class="logo-pic" src="corpus.png" alt="Logo corpus" />
-<h2 class="title2">2016 – 2017</h2>
-<h2 class="title2">Estagiário de Sistemas</h2> 
-<h3 class="text2"> 
-  • Suporte aos usuários nos produtos TOTVS RM, Relatórios baseados em SQL e Sustentação em 
-aplicações desenvolvidas internamente.<br/><br/> 
- </h3>  
-    </div>
-    <div class="portfolio box">
-      <h1 class="title">Educação</h1> <br> 
-      <h2 class="title2">2018 - 2022</h2><br>
-      <h3 class="text2">Análise e Desenvolvimento de Sistemas</h3>
-      <a href="caminho_para_seu_arquivo.pdf" target="_blank">
-        <img class="logo-pic" src="diploma.png" alt="Visualizar PDF">
-    </a>
-      <br>
-
     </div>
 
-    <div class="portfolio box">
-      <h1 class="title">Certificados</h1> <br> 
-      <br>
-      
-      <a href="certificado az-900.pdf" target="_blank">
-        <img class="logo-pic" src="certificacao.png" alt="Visualizar PDF">
-    </a>
-      <br>
+    <!-- ══ EDUCAÇÃO ════════════════════════════════════════════ -->
+    <div class="glass-card">
+      <h2 class="section-title">Educação</h2>
 
+      <div class="edu-item">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-info">
+          <p class="edu-degree">Análise e Desenvolvimento de Sistemas</p>
+          <p class="edu-institution">Fatec-ID Dr. Archimedes Lamoglia</p>
+          <p class="edu-period">2018 – 2023</p>
+        </div>
+        <a class="edu-link" href="caminho_para_seu_arquivo.pdf" target="_blank">
+          ↗ diploma
+        </a>
+      </div>
     </div>
-    <div class=" portfolio box">
-      <h1 class="title">habilidades</h1>  
-<br/>
-<ul>
-  <div class="wrapper">
-    <div class="skills"><img src="javalogo.png"></div>
-    <div class="skills"><img src="springboot.png"></div>
-    <div class="skills"><img src="css-3-logo-1.png"></div>
-    <div class="skills"><img src="angular.png"></div>
-    <div class="skills"><img src="html.jpg"></div>
-    <div class="skills"><img src="mysql.png"></div>
-    <div class="skills"><img src="oracle.png"></div>
-    
-    <div class="skills"><img src="Azure-Logo-PNG-HD.png"></div>
-    
- </div>
-  
-  
-</ul>
-    </div><br/><br/>
-    <div class="box_home">
-      <a href="index.html">
-        <button class="btn"><i class="fa fa-home"></i></button>
-      </a>
-<br/>
 
+    <!-- ══ CERTIFICADOS ════════════════════════════════════════ -->
+    <div class="glass-card">
+      <h2 class="section-title">Certificados</h2>
+
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon azure">☁️</div>
+          <span class="cert-name">Azure Fundamentals</span>
+          <span class="cert-issuer">Microsoft · AZ-900</span>
+          <span class="cert-year">2023</span>
+          <a class="cert-link" href="certificado az-900.pdf" target="_blank">↗ ver certificado</a>
+        </div>
+
+        <!-- Adicione mais certs aqui seguindo o mesmo padrão -->
+
+      </div>
     </div>
+
+    <!-- ══ HABILIDADES ══════════════════════════════════════════ -->
+    <div class="glass-card">
+      <h2 class="section-title">Habilidades Técnicas</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-item">
+          <img src="javalogo.png" alt="Java" />
+          <span class="skill-label">Java</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="springboot.png" alt="Spring Boot" />
+          <span class="skill-label">Spring Boot</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="angular.png" alt="Angular" />
+          <span class="skill-label">Angular</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="html.jpg" alt="HTML5" />
+          <span class="skill-label">HTML5</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="css-3-logo-1.png" alt="CSS3" />
+          <span class="skill-label">CSS3</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="mysql.png" alt="MySQL" />
+          <span class="skill-label">MySQL</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="oracle.png" alt="Oracle" />
+          <span class="skill-label">Oracle</span>
+        </div>
+
+        <div class="skill-item">
+          <img src="Azure-Logo-PNG-HD.png" alt="Azure" />
+          <span class="skill-label">Azure</span>
+        </div>
+
+      </div>
     </div>
-    <p class="copyright">© 2022 Anderson Cesar Dias</p>
-  </body>
+
+    <!-- ══ RODAPÉ ═════════════════════════════════════════════ -->
+    <p class="copyright">© 2026 Anderson Cesar Dias</p>
+
+  </div>
+
+</body>
 </html>
-
-
- 
-
- 
